@@ -1,0 +1,76 @@
+.header {
+    background-color: #073042;
+}
+
+.header__container {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1280px;
+    align-items: center;
+    padding: 0 70px;
+    height: 74px;
+    justify-content: space-between;
+}
+
+.header__container__login {
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+.header__button_login {
+    background-color: #3ddc84;
+    align-items: center;
+    width: 76px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    color: #000;
+    border: none;
+    font-size: 12px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-weight: 500;
+    line-height: 16px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.header__button_register {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.header__button:hover {
+    color: #fff;
+    opacity: .8;
+}
+
+.header__button:active {
+    transform: translateY(-1px);
+}
+
+@media screen and (max-width: 1024px) {
+    .header__container {
+        padding: 18px 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header__container {
+        padding: 0 14px;
+    }
+
+    .header__container__login {
+        gap: 14px;
+    }
+
+    .header__button_login {
+        font-size: 10px;
+    }
+
+    .header__button_register {
+        font-size: 10px;
+    }
+}
