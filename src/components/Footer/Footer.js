@@ -2,7 +2,7 @@ const Footer = () => (
   <footer className="footer">
       <div className="footer__container">
         <span className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</span>
-        <div className="divider_dark"/>
+        <div className="footer__divider divider_dark"/>
         <div className="footer__basement">
           <span className="footer__basement__props">©{new Date().getFullYear()}</span>
           <nav className="footer__nav">

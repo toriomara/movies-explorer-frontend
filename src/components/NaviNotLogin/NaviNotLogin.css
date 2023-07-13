@@ -1,0 +1,62 @@
+.navi-not-login__container__login {
+  align-items: center;
+  display: flex;
+  gap: 30px;
+}
+
+.navi-not-login__button_login {
+  background-color: #3ddc84;
+  align-items: center;
+  width: 76px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  color: #000;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.navi-not-login__button_register {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.navi-not-login__button:hover {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.navi-not-login__button:active {
+  transform: translateY(-1px);
+}
+
+/* ?? 768 ?? */
+@media screen and (max-width: 1024px) {
+  .navi-not-login__container {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navi-not-login__container {
+    padding: 0 14px;
+  }
+
+  .navi-not-login__container__login {
+    gap: 14px;
+  }
+
+  .navi-not-login__button_login {
+    font-size: 10px;
+  }
+
+  .navi-not-login__button_register {
+    font-size: 10px;
+  }
+}

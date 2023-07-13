@@ -1,10 +1,10 @@
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-const Layout = ({ children }) => (
+const Layout = ({ children }, isLogged) => (
   <div className="page">
-    <Header/>
-    {children}
+    <Header isLogged={isLogged}/>
+      {children}
     <Footer/>
   </div>
 );

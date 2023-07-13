@@ -1,7 +1,7 @@
 const AboutProject = () => (
   <section className="about-project">
     <h2 className="section-header">О проекте</h2>
-    <div className="about-project__divider"/>
+    <div className="about-project__divider divider_light"/>
     <div className="about-project__details">
       <span className="about-project__details__title">Дипломный проект включал 5 этапов</span>
       <span className="about-project__details__title">На выполнение диплома ушло 5 недель</span>

@@ -2,7 +2,7 @@ const Techs = () => (
   <section className="techs">
     <div className="techs__container">
       <h2 className="section-header">Технологии</h2>
-      <div className="techs__divider"/>
+      <div className="techs__divider divider_light"/>
       <h2 className="techs__title">7 технологий</h2>
       <div className="techs__subtitle">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</div>
       <ul className="techs__list">

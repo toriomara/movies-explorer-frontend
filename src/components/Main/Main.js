@@ -5,13 +5,13 @@ import AboutMe from './AboutMe/AboutMe';
 import Portfolio from './Portfolio/Portfolio';
 
 const Main = () => (
-    <section className="main">
-        <Promo/>
-        <AboutProject/>
-        <Techs/>
-        <AboutMe/>
-        <Portfolio/>
-    </section>
+  <section className="main">
+    <Promo/>
+    <AboutProject/>
+    <Techs/>
+    <AboutMe/>
+    <Portfolio/>
+  </section>
 );
 
 export default Main;

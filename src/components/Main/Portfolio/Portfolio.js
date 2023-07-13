@@ -8,14 +8,14 @@ const Portfolio = () => (
         </a>
         <span className="portfolio__arrow-up"></span>
       </li>
-      <div className="divider_dark"/>
+      <div className="portfolio__divider divider_dark"/>
       <li className="portfolio__content__item">
-        <a className="portfolio__link" href="https://github.com/toriomara/how-to-learn" target="_blank" rel="noopener noreferrer">
+        <a className="portfolio__link" href="https://github.com/toriomara/russian-travel" target="_blank" rel="noopener noreferrer">
           Адаптивный сайт
         </a>
         <span className="portfolio__arrow-up"></span>
       </li>
-      <div className="divider_dark"/>
+      <div className="portfolio__divider divider_dark"/>
       <li className="portfolio__content__item">
         <a className="portfolio__link" href="https://github.com/toriomara/how-to-learn" target="_blank" rel="noopener noreferrer">
           Одностраничное приложение
