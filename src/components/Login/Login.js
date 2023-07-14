@@ -3,7 +3,9 @@ import { signin } from './../temp/movies';
 
 const Login = () => {
   return (
-    <AuthForm signin={signin}/>
+    <div className="login">
+      <AuthForm signin={signin}/>
+    </div>
   );
 };
 

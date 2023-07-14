@@ -3,7 +3,9 @@ import { signup } from './../temp/movies';
 
 const Register = () => {
   return (
-    <AuthForm signup={signup}/>
+    <div className="register">
+      <AuthForm signup={signup}/>
+    </div>
   );
 };
 

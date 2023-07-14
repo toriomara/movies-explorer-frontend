@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import logo from '../../images/logo.svg';
 import NaviNotLogin from '../NaviNotLogin/NaviNotLogin';
 import Navigation from '../Navigation/Navigation';
+import Logo from '../Logo/Logo';
 
 const Header = ({isLogged}) => {
 
@@ -11,11 +10,9 @@ const Header = ({isLogged}) => {
   return (
     <header className={`header_${pathname === '/' ? "type-green" : "type-dark"}`}>
       <div className="header__container">
-        <Link className="header__logo__link" to='/'>
-          <img src={logo} alt="Лого"/>
-        </Link>
-        {/* {isLogged ? <Navigation/> : <NaviNotLogin/>} */}
-        {isLogged ? <NaviNotLogin/> : <Navigation/>}
+        <Logo/>
+        {isLogged ? <Navigation/> : <NaviNotLogin/>}
+        {/* {isLogged ? <NaviNotLogin/> : <Navigation/>} */}
       </div>
     </header>
   );

@@ -1,19 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
-import logo from './../../images/logo.svg'
+import Logo from '../Logo/Logo';
 
-export const AuthForm = (props) => {
-  // const { onSubmit, onChange, formValue, errorMessage, buttonText } = props;
+export const AuthForm = () => {
   const {pathname} = useLocation();
-  const {signin, signup} = props;
 
   return (
     <section className="auth">
       {pathname === '/signup' &&
         <>
           <div className="auth__header">
-            <img className="auth__logo" src={logo} alt="Лого Муви 43"/>
+            <Logo/>
             <h1 className='auth__title'>Добро пожаловать!</h1>
           </div>
+
           <form className='auth__form'>
             <label className='auth__form__label'>Имя</label>
             <input
@@ -24,7 +23,7 @@ export const AuthForm = (props) => {
               autoComplete='off'
               placeholder='Имя'
               required
-            />
+              />
             <label className='auth__form__label'>Email</label>
             <input
               className='auth__input'
@@ -44,9 +43,9 @@ export const AuthForm = (props) => {
               autoComplete='off'
               placeholder='Пароль'
               required
-            />
+              />
             <div className='auth__error'>
-              {/* {signup.error} */}
+              {/* {signup.error} */}Something went wrong...
             </div>
 
             <div className='auth__signup'>
@@ -58,7 +57,7 @@ export const AuthForm = (props) => {
               </button>
               <span className="auth__signup__basement">
                 Уже зарегистрированы?
-                <Link to='/signup' className='auth__link'>
+                <Link to='/signin' className='auth__link'>
                   Войти
                 </Link>
               </span>
@@ -69,7 +68,7 @@ export const AuthForm = (props) => {
       {pathname === '/signin' &&
         <>
           <div className="auth__header">
-            <img className="auth__logo" src={logo} alt="Лого Муви 43"/>
+            <Logo/>
             <h1 className='auth__title'>Рады видеть!</h1>
           </div>
           <form className='auth__form'>

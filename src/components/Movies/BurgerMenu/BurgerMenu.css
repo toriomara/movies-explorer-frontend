@@ -1,8 +1,5 @@
 .burger-menu {
   display: none;
-  /* visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s ease; */
 }
 
 .burger-menu_active {
@@ -20,8 +17,6 @@
   background-color: #202020;
   z-index: 1;
   transform: translateX(0%);
-  /* visibility: visible;
-  opacity: 1; */
 }
 
 .navigation__burger_close {

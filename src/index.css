@@ -6,7 +6,7 @@
 /* App */
 @import url('./components/App/Content.css');
 /* Layout */
-@import url('./components/Layout/Page.css');
+@import url('./layouts/MainLayout/Page.css');
 /* Header */
 @import url('./components/Header/Header.css');
 /* Navigation */
