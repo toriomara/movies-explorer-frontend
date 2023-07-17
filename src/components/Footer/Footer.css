@@ -3,7 +3,7 @@
   color: #fff;
 }
 
-.footer__container {
+.footer-container {
   max-width: 1280px;
   padding: 79px 70px 20px;
   margin: 0 auto;
@@ -26,24 +26,24 @@
   font-weight: 400;
 }
 
-.footer__nav {
+.basement-nav {
   display: flex;
   gap: 20px;
 }
 
-.footer__nav__link {
+.basement-nav__link {
   text-decoration: none;
   color: inherit;
 }
 
 @media screen and (max-width: 768px) {
-  .footer__container {
+  .footer-container {
     padding: 79px 30px 20px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .footer__container {
+  .footer-container {
     padding: 79px 10px 20px;
   }
 
@@ -57,17 +57,17 @@
     gap: 30px;
   }
 
-  .footer__nav {
+  .basement-nav {
     display: grid;
     place-items: center;
     gap: 10px;
   }
 
-  .footer__nav__link {
+  .basement-nav__link {
     justify-content: center;
   }
 
-  .footer__basement__props {
+  .basement-props {
     display: grid;
     place-items: center;
     color: #8b8b8b;

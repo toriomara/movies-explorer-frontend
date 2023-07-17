@@ -5,11 +5,11 @@ import AboutMe from './AboutMe/AboutMe';
 import Portfolio from './Portfolio/Portfolio';
 
 const Main = () => (
-  <section className="main">
+  <section>
     <Promo/>
     <AboutProject/>
     <Techs/>
-    <AboutMe/>
+    <AboutMe/> 
     <Portfolio/>
   </section>
 );

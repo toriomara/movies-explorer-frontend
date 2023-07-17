@@ -1,6 +1,5 @@
 .about-project {
   position: relative;
-  height: 608px;
   margin: 0 auto;
   max-width: 1280px;
   padding: 110px 70px;
@@ -40,13 +39,13 @@
   padding-bottom: 110px;
 }
 
-.about-project__details__title {
+.about-project__title {
   font-size: 20px;
   font-weight: 400;
   letter-spacing: -0.8px;
 }
 
-.about-project__details__desc {
+.about-project__desc {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -59,7 +58,7 @@
   align-items: center;
 }
 
-.about-project__timeline__stage {
+.about-project__stage {
   display: grid;
   height: 36px;
   background-color: #3ddc84;
@@ -69,7 +68,7 @@
   font-size: 14px;
 }
 
-.about-project__timeline__techs {
+.about-project__techs {
   /* FONTS Suisse Intl*/
   color: #8b8b8b;
   text-align: center;
@@ -78,7 +77,7 @@
   line-height: 17px;
 }
 
-.about-project__timeline__stage:nth-of-type(even) {
+.about-project__stage:nth-of-type(even) {
   background-color: #303030;
   color: #fff;
 }
@@ -95,7 +94,7 @@
     padding-bottom: 93px;
   }
 
-  .about-project__details__desc {
+  .about-project__desc {
     font-size: 12px;
     line-height: 18px;
   }
@@ -123,25 +122,25 @@
     padding-bottom: 60px;
   }
 
-  .about-project__details__title {
+  .about-project__title {
     font-size: 18px;
     letter-spacing: -0.72px;
   }
 
-  .about-project__details__desc {
+  .about-project__desc {
     font-size: 11px;
     line-height: 16px;
   }
 
-  .about-project__details__title:nth-of-type(even) {
+  .about-project__title:nth-of-type(even) {
     order: 1;
   }
 
-  .about-project__details__desc:nth-of-type(odd) {
+  .about-project__desc:nth-of-type(odd) {
     padding-bottom: 40px;
   }
 
-  .about-project__details__desc:nth-of-type(even) {
+  .about-project__desc:nth-of-type(even) {
     order: 1;
   }
 }

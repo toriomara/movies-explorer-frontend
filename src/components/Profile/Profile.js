@@ -1,37 +1,41 @@
 const Profile = () => {
   return (
     <section className="profile">
-      <form className="profile__form">
-        <h1 className="profile__title">Привет, Виталий!</h1>
-        <fieldset className="profile__fieldset">
-          <div className="profile__input">
-            <label className="profile__label" htmlFor="name">Имя</label>
+      <form className="profile-form">
+        <h1 className="profile-form__title">Привет, Владимир!</h1>
+        <fieldset className="profile-form__fieldset">
+         
+          <div className="fieldset-input">
+            <label htmlFor="name">Имя</label>
             <input
-              className="profile__input_type-name"
+              className="fieldset-input_type_name"
               id="name"
               type="text"
-              value='Виталий'
+              value="Виталий"
               disabled
               required
             />
           </div>
-          <span className='profile__error-info'></span>
-          <div className="profile__divider divider_dark"></div>
-          <div className="profile__input">
-            <label className="profile__label" htmlFor="email">E-mail</label>
+          
+          <span className="fieldset-input__error-info"></span>
+          <div className="fieldset-input__divider divider_dark"></div>
+          
+          <div className="fieldset-input">
+            <label htmlFor="email">E-mail</label>
             <input
-              className="profile__input_type-email"
+              className="fieldset-input_type_email"
               id="email"
               type="email"
-              value='pochta@yandex.ru'
+              value="pochta@yandex.ru"
               disabled
               required
             />
           </div>
-          <span className='profile__error-info'></span>
-          <div className="profile__buttons">
-            <button className="profile__button">Редактировать</button>
-            <button className="profile__button profile__button_logout">Выйти из аккаунта</button>
+          
+          <span className="fieldset-input__error-info"></span>
+          <div className="fieldset__buttons">
+            <button className="fieldset-button">Редактировать</button>
+            <button className="fieldset-button fieldset-button_logout">Выйти из аккаунта</button>
           </div>
         </fieldset>
       </form>

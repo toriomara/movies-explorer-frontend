@@ -18,7 +18,7 @@ const BurgerMenu = (props) => {
 
   return (
     <div className={`${isMenuOpen ? "burger-menu_active" : "burger-menu"}`}>
-      <button className="navigation__burger_close" onClick={onClose} />
+      <button className="burger-menu__button-close" onClick={onClose} />
       <div className="burger-menu__navi-block">
         <Link className="burger-menu__link" to="/" onClick={onClose}>
           Главная
@@ -32,8 +32,8 @@ const BurgerMenu = (props) => {
       </div>
         <Link className="burger-menu__link" to="/profile" onClick={onClose}>
           Аккаунт
-          <div className="navigation__icon-wrapper">
-            <span className="navigation__icon"></span>
+          <div className="navigation-icon-wrapper">
+            <span className="navigation-icon-wrapper__icon"></span>
           </div>
         </Link>
     </div>

@@ -19,8 +19,14 @@
   transform: translateX(0%);
 }
 
-.navigation__burger_close {
+.burger-menu__button-close {
   justify-self: end;
+  width: 22px;
+  height: 22px;
+  background: url('../../../images/icon-burger-close.svg') no-repeat center;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 .burger-menu__navi-block {

@@ -9,7 +9,7 @@ const Header = ({isLogged}) => {
 
   return (
     <header className={`header_${pathname === '/' ? "type-green" : "type-dark"}`}>
-      <div className="header__container">
+      <div className="header-container">
         <Logo/>
         {isLogged ? <Navigation/> : <NaviNotLogin/>}
         {/* {isLogged ? <NaviNotLogin/> : <Navigation/>} */}

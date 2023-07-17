@@ -1,6 +1,4 @@
 .search-form {
-  /* display: flex;
-  flex-direction: column; */
   padding: 70px 70px 48px;
   margin: 0 auto;
   max-width: 1280px;
@@ -15,8 +13,9 @@
   background-color: transparent;
   border: none;
   color: #8b8b8b;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
+  border-radius: 3px;
 }
 
 .search-form__input::placeholder {
@@ -25,7 +24,8 @@
 
 .search-form__input:focus {
   color: #fff;
-  outline: none;
+  outline: 2px #4285f4 solid;
+  transition: all 0.3s ease;
 }
 
 .search-form__button {
@@ -61,7 +61,6 @@
 
 .search-form__label-checkbox {
   position: relative;
-  /* display: flex; */
   width: 36px;
   height: 20px;
   background-color: #ebebeb;

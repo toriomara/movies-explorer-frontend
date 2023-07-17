@@ -3,10 +3,12 @@ import Header from '../../components/Header/Header';
 import Profile from '../../components/Profile/Profile';
 
 const ProfileLayout = () => (
-  <div className="content page">
+  <>
     <Header/>
-    <Outlet/>
-  </div>
+    <main>
+      <Outlet/>
+    </main>
+  </>
 );
 
 export default ProfileLayout;

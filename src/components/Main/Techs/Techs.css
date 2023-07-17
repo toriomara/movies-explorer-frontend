@@ -2,12 +2,8 @@
   background-color: #272727;
 }
 
-.techs__container {
+.techs-container {
   position: relative;
-  /*display: grid;*/
-  display: block;
-  flex-direction: row;
-  height: 625px;
   margin: 0 auto;
   max-width: 1280px;
   padding: 100px 70px;
@@ -39,20 +35,20 @@
   letter-spacing: -0.56px;
 }
 
-.techs__list {
+.techs-list {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-.techs__list_item {
+.techs-list__item {
   display: flex;
   width: 90px;
   height: 60px;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background: #303030;
+  background-color: #303030;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.56px;
@@ -60,9 +56,6 @@
 
 @media screen and (max-width: 768px) {
   .techs__container {
-    display: block;
-    flex-direction: row;
-    height: 570px;
     padding: 90px 50px;
   }
 
@@ -81,7 +74,7 @@
     letter-spacing: -0.48px;
   }
 
-  .techs__list_item {
+  .techs-list__item {
     width: 84px;
     height: 57px;
     font-size: 12px;
@@ -94,7 +87,7 @@
     padding-bottom: 50px;
   }
 
-  .techs__list {
+  .techs-list {
     display: grid;
     grid-template-columns: repeat(4, fit-content(50px));
     justify-content: center;
@@ -103,11 +96,9 @@
 }
 
 @media screen and (max-width: 480px) {
-  .techs__container {
-    display: block;
-    flex-direction: row;
+  .techs-container {
     height: 650px;
-    padding: 70px 18px;
+    padding: 70px 14px;
   }
 
   .techs__divider {
@@ -128,7 +119,7 @@
     letter-spacing: -0.44px;
   }
 
-  .techs__list {
+  .techs-list {
     grid-template-columns: repeat(2, fit-content(50px));
     justify-content: center;
     align-items: center;

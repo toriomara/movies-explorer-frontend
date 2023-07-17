@@ -1,63 +1,63 @@
-import { Link, useLocation } from 'react-router-dom';
-import Logo from '../Logo/Logo';
+import { Link, useLocation } from "react-router-dom";
+import Logo from "../Logo/Logo";
 
 export const AuthForm = () => {
   const {pathname} = useLocation();
 
   return (
     <section className="auth">
-      {pathname === '/signup' &&
+      {pathname === "/signup" &&
         <>
-          <div className="auth__header">
+          <div className="auth-header">
             <Logo/>
-            <h1 className='auth__title'>Добро пожаловать!</h1>
+            <h1 className="auth-title">Добро пожаловать!</h1>
           </div>
 
-          <form className='auth__form'>
-            <label className='auth__form__label'>Имя</label>
+          <form className="auth-form">
+            <label className="auth-form__label">Имя</label>
             <input
-              className='auth__input'
-              id='name'
-              name='name'
-              type='text'
-              autoComplete='off'
-              placeholder='Имя'
+              className="auth-form__input"
+              id="name"
+              name="name"
+              type="text"
+              autoComplete="off"
+              placeholder="Имя"
               required
               />
-            <label className='auth__form__label'>Email</label>
+            <label className="auth-form__label">Email</label>
             <input
-              className='auth__input'
-              id='email'
-              name='email'
-              type='email'
-              autoComplete='off'
-              placeholder='Email'
+              className="auth-form__input"
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="off"
+              placeholder="Email"
               required
               />
-            <label className='auth__form__label'>Пароль</label>
+            <label className="auth-form__label">Пароль</label>
             <input
-              className='auth__input'
-              id='password'
-              name='password'
-              type='password'
-              autoComplete='off'
-              placeholder='Пароль'
+              className="auth-form__input"
+              id="password"
+              name="password"
+              type="password"
+              autoComplete="off"
+              placeholder="Пароль"
               required
               />
-            <div className='auth__error'>
+            <div className="auth-form__error">
               {/* {signup.error} */}Something went wrong...
             </div>
 
-            <div className='auth__signup'>
+            <div className="auth__signup">
               <button 
-                className='auth__button'
-                type='submit'
+                className="signup-button"
+                type="submit"
               >
                 Зарегистрироваться
               </button>
-              <span className="auth__signup__basement">
+              <span className="signup-basement">
                 Уже зарегистрированы?
-                <Link to='/signin' className='auth__link'>
+                <Link className="signup-basement__link" to="/signin">
                   Войти
                 </Link>
               </span>
@@ -65,47 +65,47 @@ export const AuthForm = () => {
           </form>
         </>
       }
-      {pathname === '/signin' &&
+      {pathname === "/signin" &&
         <>
-          <div className="auth__header">
+          <div className="auth-header">
             <Logo/>
-            <h1 className='auth__title'>Рады видеть!</h1>
+            <h1 className="auth-title">Рады видеть!</h1>
           </div>
-          <form className='auth__form'>
-            <label className='auth__form__label'>Email</label>
+          <form className="auth-form">
+            <label className="auth__form__label">Email</label>
             <input
-              className='auth__input'
-              id='email'
-              name='email'
-              type='email'
-              autoComplete='off'
-              placeholder='Email'
+              className="auth-form__input"
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="off"
+              placeholder="Email"
               required
             />
-            <label className='auth__form__label'>Пароль</label>
+            <label className="auth-form__label">Пароль</label>
             <input
-              className='auth__input'
-              id='password'
-              name='password'
-              type='password'
-              autoComplete='off'
-              placeholder='Пароль'
+              className="auth-form__input"
+              id="password"
+              name="password"
+              type="password"
+              autoComplete="off"
+              placeholder="Пароль"
               required
             />
-            <div className='auth__error'>
+            <div className="auth-form__error">
               {/* {signin.error} */}
             </div>
             
-            <div className='auth__signup'>
+            <div className="auth__signup">
               <button 
-                className='auth__button'
-                type='submit'
+                className="signup-button"
+                type="submit"
               >
                 Войти
               </button>
-              <span className='auth__signup__basement'>
+              <span className="signup-basement">
                 Ещё не зарегистрированы?
-                <Link to='/signup' className='auth__link'>
+                <Link className="signup-basement__link" to="/signup">
                   Регистрация
                 </Link>
               </span>

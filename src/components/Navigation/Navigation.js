@@ -10,21 +10,21 @@ const Navigation = () => {
   }
 
   return (
-    <nav className="navigation">
-      <div className="navigation__list">
-        <Link className="navigation__list__link" to="/movies">
+    <nav>
+      <ul className="navigation-list">
+        <Link className="navigation-list__link" to="/movies">
           Фильмы
         </Link>
-        <Link className="navigation__list__link" to="/saved-movies">
+        <Link className="navigation-list__link" to="/saved-movies">
           Сохранённые фильмы
         </Link>
-        <Link className="navigation__list__link" to="/profile">
+        <Link className="navigation-list__link" to="/profile">
           Аккаунт
-          <div className="navigation__icon-wrapper">
-            <span className="navigation__icon"></span>
+          <div className="navigation-icon-wrapper">
+            <span className="navigation-icon-wrapper__icon"></span>
           </div>
         </Link>
-      </div>
+      </ul>
       <button className="navigation__burger" onClick={handleMenuOpen}></button>
       <BurgerMenu isMenuOpen={isMenuOpen} onClose={handleMenuOpen}/>
     </nav>

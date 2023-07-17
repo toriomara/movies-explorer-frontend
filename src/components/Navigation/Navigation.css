@@ -1,13 +1,10 @@
-.navigation {
-}
-
-.navigation__list {
+.navigation-list {
   display: flex;
   gap: 20px;
   align-items: center;
 }
 
-.navigation__list__link {
+.navigation-list__link {
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -15,19 +12,19 @@
   color: #fff;
 }
 
-.navigation__list__link:last-of-type {
+.navigation-list__link:last-of-type {
   padding-left: 30px;
   font-weight: 500;
 }
 
-.navigation__icon-wrapper {
+.navigation-icon-wrapper {
   padding: 8px 7px;
   border-radius: 4px;
   background: #313131;
   margin-left: 17px;
 }
 
-.navigation__icon {
+.navigation-icon-wrapper__icon {
   width: 11.5px;
   height: 14px;
   background: url('../../images/icon-account.svg') no-repeat center;
@@ -45,18 +42,8 @@
   cursor: pointer;
 }
 
-.navigation__burger_close {
-  display: none;
-  width: 22px;
-  height: 22px;
-  background: url('../../images/icon-burger-close.svg') no-repeat center;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
 @media screen and (max-width: 768px) {
-  .navigation__list {
+  .navigation-list {
     display: none;
   }
 
@@ -65,12 +52,6 @@
     cursor: pointer;
   }
 
-  .navigation__burger_close {
-    display: flex;
-  }
-}
-
-@media screen and (max-width: 480px) {
   .navigation__burger_close {
     display: flex;
   }
