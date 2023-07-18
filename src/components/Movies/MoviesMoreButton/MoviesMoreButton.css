@@ -1,0 +1,32 @@
+.movies-more-button-wrapper {
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.movies-more-button {
+  width: 320px;
+  height: 36px;
+  color: #fff;
+  background: url('../../../images/button-more.svg') no-repeat center;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .movies-more-button {
+    width: 240px;
+    background: url('../../../images/button-more_small.svg') no-repeat center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .movies-more-button {
+    border: #424242 1px solid;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-size: 12px;
+  }
+}

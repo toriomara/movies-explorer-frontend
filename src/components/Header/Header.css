@@ -1,0 +1,29 @@
+.header_type-green {
+  background-color: #073042;
+}
+
+.header_type-dark {
+  background-color: #202020;
+}
+
+.header-container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1280px;
+  align-items: center;
+  padding: 0 70px;
+  height: 74px;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .header-container {
+    padding: 21px 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-container {
+    padding: 18px 14px;
+  }
+}
