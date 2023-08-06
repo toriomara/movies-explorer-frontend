@@ -61,9 +61,6 @@ export const Profile = ({ onLogout, onUpdateUser, isLoading }) => {
           noValidate
         >
           <h1 className='profile-form__title'>Привет, {currentUser.name}</h1>
-          <button 
-          type='button'
-            onClick={addCount}>+1</button>
           <fieldset className='profile-form__fieldset'>
             <div className='fieldset-input'>
               <label htmlFor='name'>Имя</label>
