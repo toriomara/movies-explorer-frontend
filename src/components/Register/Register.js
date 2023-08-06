@@ -1,12 +1,43 @@
+import { useEffect } from 'react';
 import { AuthForm } from '../AuthForm/AuthForm';
-import { signup } from './../temp/movies';
+import { useFormValidation } from '../../hooks/useFormValidation';
 
-const Register = () => {
+export const Register = ({onRegister}) => {
+
+  const {
+    values, 
+    handleChange, 
+    errors, 
+    isValid, 
+    resetForm 
+  } = useFormValidation({
+    name: '',
+    email: '',
+    password: ''
+  });
+
+  useEffect(() => {
+    resetForm({}, {}, false);
+  }, [resetForm]);
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onRegister(values);
+  };
+
   return (
-    <div className="register">
-      <AuthForm signup={signup}/>
-    </div>
+    <AuthForm 
+      onSubmit={handleSubmit}
+      onChange={handleChange}
+      isValid={isValid}
+      errors={errors}
+      values={values}
+      resetForm={resetForm}
+      title='Добро пожаловать!'
+      buttonText='Зарегистрироваться'
+      question='Уже зарегистрированы?'
+      link='/signin'
+      linkText='Войти'
+    />
   );
 };
-
-export default Register;

@@ -1,21 +1,30 @@
 import { useLocation } from 'react-router-dom';
-import NaviNotLogin from '../NaviNotLogin/NaviNotLogin';
-import Navigation from '../Navigation/Navigation';
-import Logo from '../Logo/Logo';
+import { NaviNotLogin } from '../NaviNotLogin/NaviNotLogin';
+import { Navigation } from '../Navigation/Navigation';
+import { Logo } from '../Logo/Logo';
 
-const Header = ({isLogged}) => {
+export const Header = (props) => {
 
-  const {pathname} = useLocation()
+  const {
+    isLogged,
+    isOpen,
+    onClose,
+  } = props;
+
+  const {pathname} = useLocation();
 
   return (
-    <header className={`header_${pathname === '/' ? "type-green" : "type-dark"}`}>
-      <div className="header-container">
+    <header className={`header_${pathname === '/' ? 'type-green' : 'type-dark'}`}>
+      <div className='header-container'>
         <Logo/>
-        {isLogged ? <Navigation/> : <NaviNotLogin/>}
-        {/* {isLogged ? <NaviNotLogin/> : <Navigation/>} */}
+        {
+          isLogged 
+          ? <Navigation 
+              isOpen={isOpen} 
+              onClose={onClose}
+            /> 
+          : <NaviNotLogin/>}
       </div>
     </header>
   );
 };
-
-export default Header;

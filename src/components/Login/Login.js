@@ -1,12 +1,44 @@
-import { AuthForm } from '../AuthForm/AuthForm'; 
-import { signin } from './../temp/movies';
+import { AuthForm } from '../AuthForm/AuthForm';
+import { useEffect } from 'react';
+import { useFormValidation } from '../../hooks/useFormValidation';
 
-const Login = () => {
+export const Login = ({onLogin}) => {
+
+  const {
+    values, 
+    handleChange, 
+    errors, 
+    isValid,
+    resetForm 
+  } = useFormValidation({
+    email: '',
+    password: ''
+  });
+
+  useEffect(() => {
+    resetForm({}, {}, false);
+  }, [resetForm]);
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onLogin(values);
+  };
+
   return (
-    <div className="login">
-      <AuthForm signin={signin}/>
-    </div>
+    <AuthForm 
+      onSubmit={handleSubmit}
+      onChange={handleChange}
+      isValid={isValid}
+      errors={errors}
+      values={values}
+      resetForm={resetForm}
+      title='Рады видеть!'
+      buttonText='Войти'
+      question='Ещё не зарегистрированы?'
+      link='/signup'
+      linkText='Регистрация'
+    />
   );
 };
 
-export default Login;
+

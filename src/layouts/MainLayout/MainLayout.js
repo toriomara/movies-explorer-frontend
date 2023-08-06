@@ -1,15 +1,26 @@
 import { Outlet  } from 'react-router-dom';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import { Header } from '../../components/Header/Header';
+import { Footer } from '../../components/Footer/Footer';
 
-const MainLayout = (isLogged) => (
-  <>
-    <Header isLogged={isLogged}/>
-    <main>
-      <Outlet/>
-    </main>
-    <Footer/>
-  </>
-);
+export const MainLayout = (props) => {
 
-export default MainLayout;
+  const {
+    isLogged,
+    isOpen,
+    onClose,
+  } = props;
+
+  return (
+    <>
+      <Header
+        isLogged={isLogged}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
+      <main>
+        <Outlet/>
+      </main>
+      <Footer/>
+    </>
+  )
+};

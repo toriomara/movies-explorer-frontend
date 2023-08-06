@@ -1,40 +1,70 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+export const MoviesCard = (props) => {
 
-const MoviesCard = ({card}) => {
-  const {pathname} = useLocation();
+  const {
+    card, 
+    isSavedMovies,
+    onMovieAdd,
+    onMovieDelete,
+    savedMovies,
+    saved
+  } = props;
 
-  const [isLiked, setIsLiked] = useState(false);
-  const changeCardStatus = () => {
-    setIsLiked(!isLiked)
+  const durationHours = (duration) => {
+    const hours = Math.floor(duration / 60);
+    const minutes = duration % 60;
+    return (hours > 0) ? `${hours} ч ${minutes} м`: `${minutes} м`
   }
 
+  const handleChangeStatus = () => {
+    if (saved) {
+      onMovieDelete(savedMovies.filter((i) => i.movieId === card.id)[0]);
+    } else {
+      onMovieAdd(card);
+    }
+  }
+
+  const deleteMovie = () => {
+    onMovieDelete(card);
+  }
+
+  const changeButton = `${
+    saved ? 'movies-card__like_active' : 'movies-card__like'
+  }`;
+
   return (
-    <div>
-      {card.map(card => (
-        <article className="movies-card" key={card.nameRU}>
-          <div className="movies-card__info">
-            <h2 className="movies-card__title">{card.nameRU}</h2>
-            <span className="movies-card__duration">{card.duration}</span>
-            {pathname === '/movies' && 
-              <button 
-                className={`${isLiked ? "movies-card__like_active" : "movies-card__like"}`} 
-                aria-label='Сохранить' 
-                onClick={changeCardStatus}
-              />
-            }
-            {pathname === '/saved-movies' && 
-              <button 
-                className="movies-card__close"
-                aria-label='Удалить' 
-              />
-            }
-          </div>
-          <img className="movies-card__image" src={card.imgLink} alt={card.nameRU}/>
-        </article>
-      ))}
-    </div>
+    <article className='movies-card'>
+      <div className='movies-card__info'>
+        <h2 className='movies-card__title'>{card.nameRU}</h2>
+        <span className='movies-card__duration'>{durationHours(card.duration)}</span>
+        {
+          isSavedMovies ? 
+            <button 
+              className='movies-card__close' 
+              onClick={deleteMovie}
+              type='button'
+              aria-label='Удалить'
+            />
+            :
+            <button 
+              className={changeButton} 
+              onClick={handleChangeStatus}
+              type='button'
+              aria-label='Сохранить'
+            />
+        }
+      </div>
+      <a 
+        className='movies-card__link' 
+        href={card.trailerLink}
+        target='_blank'
+        rel='noreferrer noopener'
+        >
+        <img 
+          className='movies-card__image' 
+          src={(typeof card.image === 'string') ? card.image : `https://api.nomoreparties.co/${card.image.url}`}
+          alt={card.nameRU}
+        />
+      </a>
+    </article>
   );
 };
-
-export default MoviesCard;

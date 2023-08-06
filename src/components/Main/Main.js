@@ -4,7 +4,7 @@ import Techs from './Techs/Techs';
 import AboutMe from './AboutMe/AboutMe';
 import Portfolio from './Portfolio/Portfolio';
 
-const Main = () => (
+export const Main = () => (
   <section>
     <Promo/>
     <AboutProject/>
@@ -13,5 +13,3 @@ const Main = () => (
     <Portfolio/>
   </section>
 );
-
-export default Main;

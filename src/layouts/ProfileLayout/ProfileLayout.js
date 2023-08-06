@@ -1,14 +1,24 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../../components/Header/Header';
-import Profile from '../../components/Profile/Profile';
+import { Header } from '../../components/Header/Header';
 
-const ProfileLayout = () => (
-  <>
-    <Header/>
-    <main>
-      <Outlet/>
-    </main>
-  </>
-);
+export const ProfileLayout = (props) => {
 
-export default ProfileLayout;
+  const {
+    isLogged,
+    isOpen,
+    onClose,
+  } = props;
+
+  return (
+    <>
+      <Header 
+        isLogged={isLogged}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
+      <main>
+        <Outlet/>
+      </main>
+    </>
+  )
+};
