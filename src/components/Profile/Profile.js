@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, useRef } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useFormValidation } from '../../hooks/useFormValidation';
 
@@ -12,37 +12,14 @@ export const Profile = ({ onLogout, onUpdateUser, isLoading }) => {
     isValid,
     setValues,
     resetForm,    
-    setIsValid,
   } = useFormValidation();
   const [isInputedValues, setIsInputedValues] = useState(false);
-
-
 
   useEffect(() => {
     if (currentUser) {
       setValues(currentUser)
     }
-    console.log(values.name);
   }, [currentUser, resetForm]);
-  
-  // =================================================================== //
-  // +++++++++++++++++++                             +++++++++++++++++++ //
-  // =================================================================== //
-
-  // const inputName = useRef('');
-  // const inputEmail = useRef('');
-  // console.log(inputName)
-
-  // useEffect(() => {
-  //   if (currentUser.name === values.name && currentUser.email === values.email) {
-  //     setValues({name: inputName.current, email: inputEmail.current}); 
-  //   }
-  // }, [currentUser]);
-
-  // =================================================================== //
-  // +++++++++++++++++++                             +++++++++++++++++++ //
-  // =================================================================== //
-      
       
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -77,12 +54,6 @@ export const Profile = ({ onLogout, onUpdateUser, isLoading }) => {
     : 'profile__input_error'
   }`
 
-  const [count, setCount] = useState(0);
-
-  const addCount = () => {
-    setCount(count + 1);
-  }
-
   return (
       <section className='profile'>
         <form
@@ -90,7 +61,6 @@ export const Profile = ({ onLogout, onUpdateUser, isLoading }) => {
           noValidate
         >
           <h1 className='profile-form__title'>Привет, {currentUser.name}</h1>
-          <h2 className='profile-form__title'>{count}</h2>
           <button 
           type='button'
             onClick={addCount}>+1</button>
@@ -107,8 +77,7 @@ export const Profile = ({ onLogout, onUpdateUser, isLoading }) => {
                 value={values.name || ''}
                 pattern='[a-zA-ZАа-яёА-ЯЁ\s\-]{2,30}$'
                 required
-                // ref={inputName}
-                />
+              />
             </div>
             <div className='profile__error_active'>
               {errors.name}
@@ -128,7 +97,6 @@ export const Profile = ({ onLogout, onUpdateUser, isLoading }) => {
                 value={values.email || ''}
                 pattern='^\S+@\S+\.\S+$'
                 required
-                // ref={inputEmail}
               />
             </div>
             <div className='profile__error_active'>

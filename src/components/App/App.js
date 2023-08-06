@@ -120,9 +120,8 @@ const App = () => {
         }
       })
       .finally(() => {
-          console.log(`You'll see!`)
+          console.log(`Hello!`)
       });
-      // console.log('===== name', name)
   };
     
   const handleLogin = ({email, password}) => {
