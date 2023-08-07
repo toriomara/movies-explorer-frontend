@@ -34,8 +34,6 @@
 @import url('./components/Movies/MoviesCard/MoviesCard.css');
 /* Movies Card List */
 @import url('./components/Movies/MoviesCardList/MoviesCardList.css');
-/* Saved Movies */
-@import url('./components/SavedMovies/SavedMovies.css');
 /* Movies More Button */
 @import url('./components/Movies/MoviesMoreButton/MoviesMoreButton.css');
 /* Profile */

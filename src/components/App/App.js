@@ -1,9 +1,4 @@
-import { 
-  Route,
-  Routes,
-  useNavigate,
-  useLocation
-} from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Main } from '../Main/Main';
@@ -12,7 +7,7 @@ import { SavedMovies } from '../SavedMovies/SavedMovies';
 import { Profile } from '../Profile/Profile';
 import { Register } from '../Register/Register';
 import { Login } from '../Login/Login';
-import { NotFound } from '../NotFound/NotFound'
+import { NotFound } from '../NotFound/NotFound';
 import { MainLayout } from '../../layouts/MainLayout/MainLayout';
 import { PureLayout } from '../../layouts/PureLayout/PureLayout';
 import { ProfileLayout } from '../../layouts/ProfileLayout/ProfileLayout';
@@ -21,27 +16,26 @@ import { InfoTooltip } from '../InfoTooltip/InfoTooltip';
 import * as mainApi from '../../utils/MainApi';
 
 const App = () => {
-
   const navigate = useNavigate();
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
 
   const [isLogged, setIsLogged] = useState(false);
   const [savedMovies, setSavedMovies] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const [isOpen, setIsOpen] = useState(false);
   const [isInfoTooltip, setIsInfoTooltip] = useState({
     isTooltipOpen: false,
     isSuccess: Boolean,
     message: '',
-    textButton: ''
+    textButton: '',
   });
 
   const handleOpen = () => {
-    setIsOpen(!isOpen)
-  }
-  
+    setIsOpen(!isOpen);
+  };
+
   const closeAllPopups = () => {
     setIsInfoTooltip({ ...isInfoTooltip, isTooltipOpen: false });
   };
@@ -82,7 +76,7 @@ const App = () => {
       mainApi
         .getCards()
         .then((moviesData) => {
-          setSavedMovies(moviesData.reverse())
+          setSavedMovies(moviesData.reverse());
         })
         .catch((err) => {
           if (err === 400) {
@@ -91,43 +85,44 @@ const App = () => {
           if (err === 401) {
             console.log('Некорректный токен');
           }
-        })
-    } 
-  }, [isLogged, navigate]);
+        });
+    }
+  }, [isLogged]);
 
-  const handleRegister = ({name, email, password}) => {
+  const handleRegister = ({ name, email, password }) => {
     mainApi
-      .register({name, email, password})
+      .register({ name, email, password })
       .then(() => {
-        handleLogin({ email, password})
+        handleLogin({ email, password });
         setIsInfoTooltip({
           isTooltipOpen: true,
           isSuccess: true,
           message: 'Вы успешно зарегистрировались!',
           textButton: 'Закрыть',
-        })
+        });
       })
       .catch((err) => {
         if (err === 'Ошибка: 409') {
           setIsInfoTooltip({
             isTooltipOpen: true,
             isSuccess: false,
-            message: 'Этот email уже зарегистрирован. Пожалуйста, введите другой адрес',
+            message:
+              'Этот email уже зарегистрирован. Пожалуйста, введите другой адрес',
             textButton: 'Хорошо',
-          })
+          });
         } else {
-          console.log(`Ошибка: err`)
+          console.log('Ошибка: `${err}`');
         }
       })
       .finally(() => {
-          console.log(`Hello!`)
+        console.log(`Hello!`);
       });
   };
-    
-  const handleLogin = ({email, password}) => {
+
+  const handleLogin = ({ email, password }) => {
     setIsLoading(true);
     mainApi
-      .authorize({email, password})
+      .authorize({ email, password })
       .then((res) => {
         localStorage.setItem('jwt', res.token);
         setIsLogged(true);
@@ -146,30 +141,29 @@ const App = () => {
       });
   };
 
-  const handleUpdateUser = (user) => {
-    setIsLoading(true);
-    mainApi
-      .setUserInfo(user)
-      .then((res) => {
-        setCurrentUser(res);
-        setIsInfoTooltip({
-          isTooltipOpen: true,
-          isSuccess: true,
-          message: 'Ваши данные успешно обновлены!',
-          textButton: 'Закрыть',
-        });
-      })
-      .catch((err) => {
+  const handleUpdateUser = async (user) => {
+    try {
+      const res = await mainApi.setUserInfo(user);
+      setCurrentUser(res);
+      setIsInfoTooltip({
+        isTooltipOpen: true,
+        isSuccess: true,
+        message: 'Ваши данные успешно обновлены!',
+        textButton: 'Закрыть',
+      });
+    } catch (err) {
+      if (err === 'Ошибка: 409') {
         setIsInfoTooltip({
           isTooltipOpen: true,
           isSuccess: false,
-          message: `${err}`,
-          textButton: 'Закрыть',
+          message:
+            'Этот email уже зарегистрирован. Пожалуйста, введите другой адрес',
+          textButton: 'Хорошо',
         });
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      } else {
+        console.log('Ошибка: `${err}`');
+      }
+    }
   };
 
   const handleLogout = () => {
@@ -199,25 +193,36 @@ const App = () => {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
-        <Route path='/' element={
-          <MainLayout 
-            isLogged={isLogged} 
-            isLoading={isLoading}
-            isOpen={isOpen}
-            onClose={handleOpen}
-          />
-        }>
-          <Route index element={<Main isLoading={isLoading}/>}/>
-          <Route element={<ProtectedRoute isLogged={isLogged} isLoading={isLoading}/>}>
-            <Route path='movies' element={
-              <Movies
-                savedMovies={savedMovies}
-                onMovieAdd={handleMovieAdd}
-                onMovieDelete={handleMovieDelete}
-                isLoading={isLoading}
-              />
-            }/>
-            <Route path='saved-movies' 
+        <Route
+          path='/'
+          element={
+            <MainLayout
+              isLogged={isLogged}
+              isLoading={isLoading}
+              isOpen={isOpen}
+              onClose={handleOpen}
+            />
+          }
+        >
+          <Route index element={<Main isLoading={isLoading} />} />
+          <Route
+            element={
+              <ProtectedRoute isLogged={isLogged} isLoading={isLoading} />
+            }
+          >
+            <Route
+              path='movies'
+              element={
+                <Movies
+                  savedMovies={savedMovies}
+                  onMovieAdd={handleMovieAdd}
+                  onMovieDelete={handleMovieDelete}
+                  isLoading={isLoading}
+                />
+              }
+            />
+            <Route
+              path='saved-movies'
               element={
                 <SavedMovies
                   savedMovies={savedMovies}
@@ -227,47 +232,49 @@ const App = () => {
             />
           </Route>
         </Route>
-        <Route element={
-          <ProfileLayout 
-            isLogged={isLogged}
-            isOpen={isOpen}
-            onClose={handleOpen}
-          />
-        }>
-          <Route element={<ProtectedRoute isLogged={isLogged}/>}>
-            <Route path='/profile' element={
-              <Profile
-                isLoading={isLoading}
-                onLogout={handleLogout}
-                onUpdateUser={handleUpdateUser}
-              />
-            }/>
+        <Route
+          element={
+            <ProfileLayout
+              isLogged={isLogged}
+              isOpen={isOpen}
+              onClose={handleOpen}
+            />
+          }
+        >
+          <Route element={<ProtectedRoute isLogged={isLogged} />}>
+            <Route
+              path='/profile'
+              element={
+                <Profile
+                  isLoading={isLoading}
+                  onLogout={handleLogout}
+                  onUpdateUser={handleUpdateUser}
+                />
+              }
+            />
           </Route>
         </Route>
-        <Route path='signup' element={<PureLayout/>}>
-          <Route path='/signup' element={
-            <Register
-              onRegister={handleRegister}
-            />
-          }/>
+        <Route path='signup' element={<PureLayout />}>
+          <Route
+            path='/signup'
+            element={
+              <Register isLogged={isLogged} onRegister={handleRegister} />
+            }
+          />
         </Route>
-        <Route path='signin' element={<PureLayout/>}>
-          <Route path='/signin' element={
-            <Login
-              onLogin={handleLogin}
-            />
-          }/>
+        <Route path='signin' element={<PureLayout />}>
+          <Route
+            path='/signin'
+            element={<Login isLogged={isLogged} onLogin={handleLogin} />}
+          />
         </Route>
-        <Route path='*' element={<PureLayout/>}>
-          <Route path='*' element={<NotFound/>}/>
+        <Route path='*' element={<PureLayout />}>
+          <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
-      <InfoTooltip
-        state={isInfoTooltip}
-        onClose={closeAllPopups}
-      />
+      <InfoTooltip state={isInfoTooltip} onClose={closeAllPopups} />
     </CurrentUserContext.Provider>
-  )
-}
+  );
+};
 
 export default App;

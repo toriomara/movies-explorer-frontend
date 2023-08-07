@@ -20,7 +20,10 @@ export const SavedMovies = ({savedMovies, onMovieDelete}) => {
 
   useEffect(() => {
     const moviesList = filterMovies(savedMovies, searchRequest);
-    setFilteredMovies(isShortMovies ? filterDuration(moviesList) : moviesList);
+    setFilteredMovies(isShortMovies ? 
+      filterDuration(moviesList) 
+    : 
+      moviesList);
   }, [savedMovies, isShortMovies, searchRequest]);
 
   useEffect(() => {

@@ -8,3 +8,13 @@ export const REGEX_EMAIL = /^\S+@\S+\.\S+$/;
 
 
 
+export const WIDE_SCREEN_WIDTH = 768;
+export const TABLET_PC_WIDTH = 480;
+export const MOBILE_WIDTH = 320;
+
+export const MORE_MOVIES_WIDE_SCREEN = 4;
+export const MORE_MOVIES_TABLET_PC = 3;
+export const MORE_MOVIES_MOBILE = 2;
+export const ONE_MORE_MOVIES = 1;
+
+export const SHORT_MOVIE_DURATION = 40;

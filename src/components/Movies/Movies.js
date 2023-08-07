@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { SearchForm } from './SearchForm/SearchForm';
 import { MoviesCardList } from './MoviesCardList/MoviesCardList';
 import { filterMovies, filterDuration } from '../../utils';
-import * as movies from '../../utils/MoviesApi';
+import { getMovies } from '../../utils/MoviesApi';
 
 export const Movies = (props) => {
 
@@ -50,8 +50,7 @@ export const Movies = (props) => {
       handleFilterMovies(movies, search, isShortMovies);
     } else {
       setIsLoading(true);
-      movies
-        .getMovies()
+      getMovies()
         .then((cardsData) => {
           handleFilterMovies(cardsData, search, isShortMovies);
           setIsRequestErr(false);

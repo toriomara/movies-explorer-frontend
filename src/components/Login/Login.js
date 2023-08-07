@@ -1,8 +1,17 @@
 import { AuthForm } from '../AuthForm/AuthForm';
 import { useEffect } from 'react';
 import { useFormValidation } from '../../hooks/useFormValidation';
+import { useNavigate } from 'react-router-dom';
 
-export const Login = ({onLogin}) => {
+export const Login = ({isLogged, onLogin}) => {
+
+  const navigate = useNavigate();
+  // isLogged ? navigate('/') : null;
+  useEffect(() => {
+    if (isLogged) {
+      navigate('/')
+    }
+  }, [isLogged])
 
   const {
     values, 
