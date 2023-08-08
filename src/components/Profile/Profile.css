@@ -3,12 +3,8 @@
   width: 100%;
   max-width: 410px;
   justify-content: center;
-  padding-top: 74px;
+  padding-top: 150px;
   margin: 0 auto;
-}
-
-.profile-form {
-  display: grid;
 }
 
 .profile-form__title {
@@ -32,26 +28,37 @@
   font-weight: 500;
 }
 
-.fieldset-input_type_name {
-  display: flex;
+.profile__input {
+  width: 100%;
   text-align: right;
-
   background-color: transparent;
-  border: 0;
-  outline: 0;
+  outline: none;
+  border: none;
   color: #fff;
 }
 
-.fieldset-input_type_email {
+.profile__input_error {
   text-align: right;
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  color: #fff;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #ee3465;
+  background: transparent;
+  font-size: 14px;
+  line-height: 17px;
+  transition: all 0.3s ease;
+}
+
+.profile__error_active {
+  min-height: 20px;
+  color: #ee3465;
+  font-size: 10px;
+  line-height: 10px;
+  transition: all 0.3s ease;
 }
 
 .fieldset-input__divider {
-  margin: 16px 0;
+  margin: 0 0 16px;
 }
 
 .fieldset__buttons {
@@ -72,6 +79,17 @@
   transition: 0.3s;
 }
 
+.fieldset-button_disable {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.3;
+}
+
 .fieldset-button:hover {
   opacity: 0.8;
 }
@@ -82,7 +100,7 @@
 
 @media screen and (max-width: 768px) {
   .profile {
-    padding-top: 236px;
+    padding-top: 200px;
   }
 
   .profile-form__fieldset {

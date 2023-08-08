@@ -1,12 +1,53 @@
-import { AuthForm } from '../AuthForm/AuthForm'; 
-import { signin } from './../temp/movies';
+import { AuthForm } from '../AuthForm/AuthForm';
+import { useEffect } from 'react';
+import { useFormValidation } from '../../hooks/useFormValidation';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+export const Login = ({isLogged, onLogin}) => {
+
+  const navigate = useNavigate();
+  // isLogged ? navigate('/') : null;
+  useEffect(() => {
+    if (isLogged) {
+      navigate('/')
+    }
+  }, [isLogged])
+
+  const {
+    values, 
+    handleChange, 
+    errors, 
+    isValid,
+    resetForm 
+  } = useFormValidation({
+    email: '',
+    password: ''
+  });
+
+  useEffect(() => {
+    resetForm({}, {}, false);
+  }, [resetForm]);
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onLogin(values);
+  };
+
   return (
-    <div className="login">
-      <AuthForm signin={signin}/>
-    </div>
+    <AuthForm 
+      onSubmit={handleSubmit}
+      onChange={handleChange}
+      isValid={isValid}
+      errors={errors}
+      values={values}
+      resetForm={resetForm}
+      title='Рады видеть!'
+      buttonText='Войти'
+      question='Ещё не зарегистрированы?'
+      link='/signup'
+      linkText='Регистрация'
+    />
   );
 };
 
-export default Login;
+

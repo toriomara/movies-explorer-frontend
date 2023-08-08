@@ -1,5 +1,4 @@
 /* Vendor */
-/* @import url('./vendor/normalize.css'); */
 @import url('./vendor/fonts/fonts.css');
 /*Global CSS*/
 @import url('./global.css');
@@ -35,15 +34,11 @@
 @import url('./components/Movies/MoviesCard/MoviesCard.css');
 /* Movies Card List */
 @import url('./components/Movies/MoviesCardList/MoviesCardList.css');
-/* Saved Movies */
-@import url('./components/SavedMovies/SavedMovies.css');
 /* Movies More Button */
 @import url('./components/Movies/MoviesMoreButton/MoviesMoreButton.css');
 /* Profile */
 @import url('./components/Profile/Profile.css');
 /* AuthForm */
 @import url('./components/AuthForm/AuthForm.css');
-/* Login */
-@import url('./components/Login/Login.css');
-/* Register */
-@import url('./components/Register/Register.css');
+/* InfoTooltip */
+@import url('./components/InfoTooltip/InfoTooltip.css');

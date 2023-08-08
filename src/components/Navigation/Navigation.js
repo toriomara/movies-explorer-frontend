@@ -1,34 +1,41 @@
-import { Link } from 'react-router-dom';
-import BurgerMenu from '../Movies/BurgerMenu/BurgerMenu';
+import { NavLink } from 'react-router-dom';
+import { BurgerMenu } from '../Movies/BurgerMenu/BurgerMenu';
 import { useState } from 'react';
 
-const Navigation = () => {
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const handleMenuOpen = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+export const Navigation = ({isOpen, onClose}) => {
 
   return (
     <nav>
-      <ul className="navigation-list">
-        <Link className="navigation-list__link" to="/movies">
+      <nav className='navigation-list'>
+        <NavLink 
+          className='navigation-list__link' 
+          aria-label='Фильмы'
+          to='/movies'
+        >
           Фильмы
-        </Link>
-        <Link className="navigation-list__link" to="/saved-movies">
+        </NavLink>
+        <NavLink 
+          className='navigation-list__link' 
+          aria-label='Сохранённые фильмы'
+          to='/saved-movies'
+        >
           Сохранённые фильмы
-        </Link>
-        <Link className="navigation-list__link" to="/profile">
+        </NavLink>
+        <NavLink 
+          className='navigation-list__link'
+          aria-label='Аккаунт'
+          to='/profile'
+        >
           Аккаунт
-          <div className="navigation-icon-wrapper">
-            <span className="navigation-icon-wrapper__icon"></span>
-          </div>
-        </Link>
-      </ul>
-      <button className="navigation__burger" onClick={handleMenuOpen}></button>
-      <BurgerMenu isMenuOpen={isMenuOpen} onClose={handleMenuOpen}/>
+            <i className='navigation-icon-wrapper__icon'/>
+        </NavLink>
+      </nav>
+      <button 
+        className='navigation__burger'
+        aria-label='Меню'
+        onClick={onClose}
+      ></button>
+      <BurgerMenu isOpen={isOpen} onClose={onClose}/>
     </nav>
   );
 };
-
-export default Navigation;
