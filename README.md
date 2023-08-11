@@ -26,9 +26,7 @@ https://movie43.nomoreparties.co/
 
 Установите зависимости:
 
-### `npm install` 
-или
-### `yarn init`
+### `npm install`  или ### `yarn init`
 
 Запустите сервер разработки:
 
