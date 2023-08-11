@@ -44,7 +44,7 @@ export const MoviesCard = (props) => {
               type='button'
               aria-label='Удалить'
             />
-            :
+          :
             <button 
               className={changeButton} 
               onClick={handleChangeStatus}
