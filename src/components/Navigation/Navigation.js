@@ -2,7 +2,13 @@ import { NavLink } from 'react-router-dom';
 import { BurgerMenu } from '../Movies/BurgerMenu/BurgerMenu';
 import { useState } from 'react';
 
-export const Navigation = ({isOpen, onClose}) => {
+export const Navigation = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const handleOpen = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav>
@@ -33,9 +39,9 @@ export const Navigation = ({isOpen, onClose}) => {
       <button 
         className='navigation__burger'
         aria-label='Меню'
-        onClick={onClose}
+        onClick={handleOpen}
       ></button>
-      <BurgerMenu isOpen={isOpen} onClose={onClose}/>
+      <BurgerMenu isOpen={isOpen} onClose={handleOpen}/>
     </nav>
   );
 };

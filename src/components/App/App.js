@@ -24,17 +24,12 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const [isOpen, setIsOpen] = useState(false);
   const [isInfoTooltip, setIsInfoTooltip] = useState({
     isTooltipOpen: false,
     isSuccess: Boolean,
     message: '',
     textButton: '',
   });
-
-  const handleOpen = () => {
-    setIsOpen(!isOpen);
-  };
 
   const closeAllPopups = () => {
     setIsInfoTooltip({ ...isInfoTooltip, isTooltipOpen: false });
@@ -196,18 +191,13 @@ const App = () => {
         <Route
           path='/'
           element={
-            <MainLayout
-              isLogged={isLogged}
-              isLoading={isLoading}
-              isOpen={isOpen}
-              onClose={handleOpen}
-            />
+            <MainLayout isLogged={isLogged} />
           }
         >
           <Route index element={<Main isLoading={isLoading} />} />
           <Route
             element={
-              <ProtectedRoute isLogged={isLogged} isLoading={isLoading} />
+              <ProtectedRoute isLogged={isLogged} />
             }
           >
             <Route
@@ -217,7 +207,6 @@ const App = () => {
                   savedMovies={savedMovies}
                   onMovieAdd={handleMovieAdd}
                   onMovieDelete={handleMovieDelete}
-                  isLoading={isLoading}
                 />
               }
             />
@@ -234,11 +223,7 @@ const App = () => {
         </Route>
         <Route
           element={
-            <ProfileLayout
-              isLogged={isLogged}
-              isOpen={isOpen}
-              onClose={handleOpen}
-            />
+            <ProfileLayout isLogged={isLogged} />
           }
         >
           <Route element={<ProtectedRoute isLogged={isLogged} />}>
@@ -246,7 +231,6 @@ const App = () => {
               path='/profile'
               element={
                 <Profile
-                  isLoading={isLoading}
                   onLogout={handleLogout}
                   onUpdateUser={handleUpdateUser}
                 />
@@ -258,21 +242,32 @@ const App = () => {
           <Route
             path='/signup'
             element={
-              <Register isLogged={isLogged} onRegister={handleRegister} />
+              <Register 
+                isLogged={isLogged} 
+                onRegister={handleRegister} 
+              />
             }
           />
         </Route>
         <Route path='signin' element={<PureLayout />}>
           <Route
             path='/signin'
-            element={<Login isLogged={isLogged} onLogin={handleLogin} />}
+            element={
+              <Login 
+                isLogged={isLogged} 
+                onLogin={handleLogin} 
+              />
+            }
           />
         </Route>
         <Route path='*' element={<PureLayout />}>
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
-      <InfoTooltip state={isInfoTooltip} onClose={closeAllPopups} />
+      <InfoTooltip 
+        state={isInfoTooltip} 
+        onClose={closeAllPopups} 
+      />
     </CurrentUserContext.Provider>
   );
 };
