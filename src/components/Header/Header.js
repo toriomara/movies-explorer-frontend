@@ -3,13 +3,7 @@ import { NaviNotLogin } from '../NaviNotLogin/NaviNotLogin';
 import { Navigation } from '../Navigation/Navigation';
 import { Logo } from '../Logo/Logo';
 
-export const Header = (props) => {
-
-  const {
-    isLogged,
-    isOpen,
-    onClose,
-  } = props;
+export const Header = ({isLogged}) => {
 
   const {pathname} = useLocation();
 
@@ -19,10 +13,7 @@ export const Header = (props) => {
         <Logo/>
         {
           isLogged 
-          ? <Navigation 
-              isOpen={isOpen} 
-              onClose={onClose}
-            /> 
+          ? <Navigation /> 
           : <NaviNotLogin/>}
       </div>
     </header>

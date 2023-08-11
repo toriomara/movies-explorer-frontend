@@ -26,21 +26,20 @@ https://movie43.nomoreparties.co/
 
 Установите зависимости:
 
-`npm install` 
+### `npm install` 
 или
-`yarn init`
+### `yarn init`
 
 Запустите сервер разработки:
 
-`npm start`
+### `npm start`
 или
-`yarn start`
+### `yarn start`
 
 Сборка проекта:
+### `npm run build`
 
-`npm run build`
-или
-`yarn build`
+![placeImage](https://github.com/toriomara/movies-explorer-frontend/raw/main/placeImage.png)
 
 
 
