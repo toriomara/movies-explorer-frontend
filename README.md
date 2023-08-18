@@ -7,7 +7,7 @@
 - добавление и удаление фильмов из избранного;
 - редактирование данных пользователя.
 
-### Технологии
+## Технологии
 
 - JavaScript
 - React JS
@@ -24,9 +24,9 @@
 
 https://movie43.nomoreparties.co/
 
-Установите зависимости:
+### Установите зависимости:
 
-### `npm install`  или ### `yarn init`
+### `npm install` или `yarn init`
 
 Запустите сервер разработки:
 
@@ -34,7 +34,7 @@ https://movie43.nomoreparties.co/
 или
 ### `yarn start`
 
-Сборка проекта:
+### Сборка проекта:
 ### `npm run build`
 
 ![placeImage](https://github.com/toriomara/movies-explorer-frontend/raw/main/placeImage.png)
